@@ -6,6 +6,24 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous">
     </script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
+    </script>
+    <script type="text/javascript">
+      var api_key = $.cookie('apikey');
+      var Token = "Token token\"" + api_key + "\""
+
+      $.ajaxSetup({
+        header: {
+          "Accept": "application/vvv.website+json;version=1",
+          "Authorization": Token
+        }
+          // beforeSend: function (xhr)
+          // {
+          //    xhr.setRequestHeader("Accept","application/vvv.website+json;version=1");
+          //    xhr.setRequestHeader("Authorization", Token);        
+          // }
+      });
+    </script>
   </head>
   <body>
     <div class="form">
@@ -32,15 +50,17 @@
       var email = $('.email').val();
       var password = $('.password').val();
       $.ajax({
-        url: 'login',
+        url: 'http://18.219.132.120/index.php/api/login',
         dataType: 'json',
         type: 'post',
         data: { 'email': email, 'password': password},
+        crossDomain: true,
         success: function (data, status) {
           $('.form').hide();
           $('.loginafter').show();
           $('.loginafter').append('<div> Welcome <span style="color:red;">'+ data.name +'</span></div>');
           $('.loginafter').append('<div style="margin-top: 20px;"> Your API_KEY is <span style="color:red">'+ data.api_key +'</span></div>');
+          $.cookie('apikey', data.api_key);
         },
         error: function(data) {
           $('.form').hide();

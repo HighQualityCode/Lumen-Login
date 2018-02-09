@@ -14,54 +14,46 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                "name"          => "Nahid Bin Azhar",
-                "email"         => "talk@example.com",
+                "firstname"     => "Nahid",
+                "lastname"      => "Bin Azhar",
+                "username"      => "user1",
                 "password"      => app('hash')->make('123456'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Robert Carlos",
-                "email"         => "carlos@example.com",
+                "firstname"     => "Yut",
+                "lastname"      => "Udopp",
+                "username"      => "user2",
                 "password"      => app('hash')->make('123456'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Firoz Serniabat",
-                "email"         => "firoz@example.com",
+                "firstname"     => "Roy",
+                "lastname"      => "Bin",
+                "username"      => "user3",
                 "password"      => app('hash')->make('123456'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Rony Al Manum",
-                "email"         => "rony@example.com",
+                "firstname"     => "robert",
+                "lastname"      => "Azhar",
+                "username"      => "user4",
                 "password"      => app('hash')->make('123456'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                "name"          => "Suman Sutradhar",
-                "email"         => "suman@example.com",
+                "firstname"     => "chris",
+                "lastname"      => "man",
+                "username"      => "user5",
                 "password"      => app('hash')->make('123456'),
                 "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
                 "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
             ],
-            [
-                "name"          => "Arifur Rahman",
-                "email"         => "arif@example.com",
-                "password"      => app('hash')->make('123456'),
-                "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
-                "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
-            ],
-            [
-                "name"          => "Obi Plabon",
-                "email"         => "obi@example.com",
-                "password"      => app('hash')->make('123456'),
-                "created_at"    => Carbon::now()->format('Y-m-d H:i:s'),
-                "updated_at"    => Carbon::now()->format('Y-m-d H:i:s')
-            ],
+            
         ];
 
         DB::table('users')->insert($users);
