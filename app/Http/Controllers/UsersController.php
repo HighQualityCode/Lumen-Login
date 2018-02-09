@@ -36,9 +36,17 @@ class UsersController extends Controller {
    }
 
    public function register(Request $request) {
-      $user = User::create($request);
+      $user = new User();
+      $user->password = Hash::make($request->input('password'));
+      $user->firstname = $request->input('firstname');
+      $user->lastname = $request->input('lastname');
+      $user->username = $request->input('username');
+      $user->save();
       if ($user) {
         return response()->json(['status' => 'success'], 200);
+      }
+      else {
+        return response()->json(['message'=>'user create failed'], 401);
       }
    }
 
