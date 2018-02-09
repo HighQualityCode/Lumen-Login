@@ -16,7 +16,7 @@ class UsersController extends Controller {
 
    public function authenticate(Request $request)
    {
-  		$user = User::where('username', $request->input('username'))->first();
+      $user = User::where('username', $request->input('username'))->first();
       if ($user && (Hash::check($request->input('password'), $user->password)))
       {
         $apikey = base64_encode(str_random(40));
